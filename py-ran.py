@@ -66,8 +66,9 @@ def decrypt_data(password, dire='../azure_blob_analytics/'):
     for file in [val for sublist in [[os.path.join(i[0], j) for j in i[2]] for i in os.walk(dire)] for val in sublist]:
         try:
             fast_decrypt(file,password)
-        except (ValueError, FileNotFoundError): # sometimes files that exist don't get decrypted??
+        except (ValueError, FileNotFoundError) as e: # sometimes files that exist don't get decrypted??
             # .DS_STORE file
+            print(e)
             continue
     print("Decryption Done!")
 
