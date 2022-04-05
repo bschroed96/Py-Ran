@@ -29,6 +29,8 @@ def DecryptFile(file,password):
     os.remove(file)
 
 def fast_encrypt(infile, pw):
+    if os.path.islink(infile):
+        infile = os.path.realpath(infile)
     with open(infile, 'rb') as file_data:
         key = bytes('floofloofloofloo', 'utf-8')
         # print(str(key))
@@ -40,6 +42,8 @@ def fast_encrypt(infile, pw):
 
 def fast_decrypt(infile, pw):
     key = bytes(pw, 'utf-8')
+    if os.path.islink(infile):
+        infile = os.path.realpath(infile)
     with open(infile, 'rb') as file_data:
         nonce, tag, ciphertext = [ file_data.read(x) for x in (16, 16, -1) ]
         cipher = AES.new(key, AES.MODE_EAX, nonce)
