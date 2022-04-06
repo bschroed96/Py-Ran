@@ -4,6 +4,7 @@
 #!/usr/bin/python3
 # import argparse
 import os
+import sys
 import base64
 import pyAesCrypt
 import random
